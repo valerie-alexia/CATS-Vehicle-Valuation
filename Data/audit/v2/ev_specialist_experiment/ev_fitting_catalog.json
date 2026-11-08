@@ -1,0 +1,710 @@
+{
+  "schema_version": 1,
+  "bundle_sha256": "ae423f7cb08077a49193128cbf08cf2f5cd4937d43a18bec761536dcad4d4e23",
+  "source_sha256": "ccac710d2b4f83e2699d4a8f9b7453251143e45d0d3ee3d99b3323e72792b405",
+  "fields": [
+    "Merk",
+    "Model",
+    "Varian",
+    "JenisTransmisi"
+  ],
+  "combination_count": 116,
+  "combinations": [
+    {
+      "Merk": "BMW",
+      "Model": "I4",
+      "Varian": "EDRIVE35",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "I5",
+      "Varian": "EDRIVE40 M SPORT",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "I7",
+      "Varian": "XDRIVE60 GRAN LUSSO",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "I7",
+      "Varian": "XDRIVE60 THE FIRST EDITION",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "IX",
+      "Varian": "XDRIVE40 SPORT",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "IX",
+      "Varian": "XDRIVE50 SPORT",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "IX1",
+      "Varian": "EDRIVE20 M SPORT",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "ATTO",
+      "Varian": "1 LONG RANGE PREMIUM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "ATTO",
+      "Varian": "1 STANDARD RANGE DYNAMIC",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "ATTO",
+      "Varian": "3 SUPERIOR",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "DOLPHIN",
+      "Varian": "PREMIUM EXTENDED RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "M6",
+      "Varian": "STANDARD 7 SEATER",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "M6",
+      "Varian": "SUPERIOR 7 SEATER",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "M6",
+      "Varian": "SUPERIOR CAPTAIN 6 SEATER",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEAL",
+      "Varian": "PERFORMANCE AWD",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEAL",
+      "Varian": "PREMIUM 4X2 AT",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEAL",
+      "Varian": "PREMIUM EXTENDED RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEALION 7",
+      "Varian": "PERFORMANCE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEALION 7",
+      "Varian": "PREMIUM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHANGAN",
+      "Model": "LUMIN",
+      "Varian": "MICRO CAR LISTRIK ELECTRIC",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6",
+      "Varian": "EV IWD",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6",
+      "Varian": "EV IWD PHANTOM EDITION",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6",
+      "Varian": "EV RWD",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6",
+      "Varian": "EV RWD PHANTOM EDITION",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6T",
+      "Varian": "IWD",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA",
+      "Varian": "J6T IWD",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA E5",
+      "Varian": "EV",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA E5",
+      "Varian": "EV PURE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA J6",
+      "Varian": "EV IWD",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA J6",
+      "Varian": "EV IWD PHANTOM EDITION",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA J6",
+      "Varian": "EV RWD",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "CITROEN",
+      "Model": "E-C3",
+      "Varian": "ELECTRIC",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "DENZA",
+      "Model": "D9",
+      "Varian": "ADVANCED",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "FIAT",
+      "Model": "ABARTH",
+      "Varian": "500E",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "GAC",
+      "Model": "AION",
+      "Varian": "UT PREMIUM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "GAC",
+      "Model": "AION",
+      "Varian": "V LUXURY",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "GAC",
+      "Model": "AION",
+      "Varian": "Y PLUS 410 EXCLUSIVE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "GAC",
+      "Model": "HYPTEC HT",
+      "Varian": "PREMIUM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "GEELY",
+      "Model": "EX",
+      "Varian": "5 MAX",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "GENESIS",
+      "Model": "G80",
+      "Varian": "ELECTRIFIED",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "GWM",
+      "Model": "ORA",
+      "Varian": "03",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "GWM",
+      "Model": "ORA",
+      "Varian": "03 PRO",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HUMMER",
+      "Model": "GMC",
+      "Varian": "EV HEV EDITION 1",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ",
+      "Varian": "PRIME",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ",
+      "Varian": "SIGNATURE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "N PERFORMANCE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "PRIME LONG RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "PRIME STANDARD RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "SIGNATURE LONG RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "SIGNATURE STANDARD RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 6",
+      "Varian": "FASTBACK",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 6",
+      "Varian": "FASTBACK MESIN & TRANSMISI",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 6",
+      "Varian": "FASTBACK NO PR",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "KONA",
+      "Varian": "EV",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "KONA",
+      "Varian": "PRIME LONG RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "KONA",
+      "Varian": "SIGNATURE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "KONA",
+      "Varian": "SIGNATURE LONG RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "JAECOO",
+      "Model": "J5",
+      "Varian": "PREMIUM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "JAGUAR",
+      "Model": "I-PACE",
+      "Varian": "1 R DYNAMIC GREY",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "JAGUAR",
+      "Model": "I-PACE",
+      "Varian": "R DYNAMIC HSE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "KIA",
+      "Model": "EV6",
+      "Varian": "GT-LINE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "KIA",
+      "Model": "EV9",
+      "Varian": "GT-LINE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "LEXUS",
+      "Model": "RZ",
+      "Varian": "450E LUXURY",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "LEXUS",
+      "Model": "UX",
+      "Varian": "300E",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MAXUS",
+      "Model": "MIFA-9",
+      "Varian": "PREMIUM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MERCEDES-BENZ",
+      "Model": "EQE350+",
+      "Varian": "ELECTRIC ART LINE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MERCEDES-BENZ",
+      "Model": "EQS450",
+      "Varian": "AMG LINE 4MATIC",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MERCEDES-BENZ",
+      "Model": "EQS450+",
+      "Varian": "AMG LINE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MERCEDES-BENZ",
+      "Model": "EQS450+",
+      "Varian": "ELECTRIC ART LINE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MG",
+      "Model": "CYBERSTER",
+      "Varian": "UNKNOWN",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MG",
+      "Model": "ES",
+      "Varian": "EV",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MG",
+      "Model": "ZS",
+      "Varian": "EV MAGNIFY",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "MINI",
+      "Model": "COOPER",
+      "Varian": "COOPER SE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "NETA",
+      "Model": "NETA V",
+      "Varian": "UNKNOWN",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "NETA",
+      "Model": "NETA X",
+      "Varian": "500 ELITE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "NETA",
+      "Model": "NETA X",
+      "Varian": "500 SUPREME",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "NISSAN",
+      "Model": "LEAF",
+      "Varian": "UNKNOWN",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "PORSCHE",
+      "Model": "TAYCAN",
+      "Varian": "PERFORMANCE BATTERY",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "PORSCHE",
+      "Model": "TAYCAN",
+      "Varian": "PERFORMANCE BATTERY PLUS",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "PORSCHE",
+      "Model": "TAYCAN",
+      "Varian": "TURBO",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "SMART",
+      "Model": "EQ",
+      "Varian": "FORTWO",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "SMART",
+      "Model": "EQ",
+      "Varian": "FORTWO 0 BASE SPEC",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL 3",
+      "Varian": ".0 STANDARD RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL 3",
+      "Varian": "LONG RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL 3",
+      "Varian": "STANDARD RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL 3",
+      "Varian": "STANDARD RANGE PLUS",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL S",
+      "Varian": "P100D",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL X",
+      "Varian": "75D",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL Y",
+      "Varian": "LONG RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL Y",
+      "Varian": "STANDARD",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "TOYOTA",
+      "Model": "BZ4X",
+      "Varian": "UNKNOWN",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "VOLKSWAGEN",
+      "Model": "ID. BUZZ",
+      "Varian": "BUSINESS EDITION",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "VOLKSWAGEN",
+      "Model": "ID. BUZZ",
+      "Varian": "LWB",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "VOLVO",
+      "Model": "EX30",
+      "Varian": "PLUS",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "VOLVO",
+      "Model": "EX30",
+      "Varian": "ULTRA",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "VOLVO",
+      "Model": "XC40",
+      "Varian": "RECHARGE ULTIMATE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LITE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LITE 300KM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LITE LONG RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LONG RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LONG RANGE + CHARGING",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LONG RANGE 300PRO. COATING",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "PRO 300KM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "STANDARD RANGE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "BINGUO EV",
+      "Varian": "333 LONG RANGE AC",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "BINGUO EV",
+      "Varian": "333 LONG RANGE AC/DC",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "BINGUO EV",
+      "Varian": "410 PREMIUM RANGE AC/DC",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "BINGUO EV",
+      "Varian": "LITE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "CLOUD EV",
+      "Varian": "460KM",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "CLOUD EV",
+      "Varian": "LITE",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "DARION",
+      "Varian": "EX",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "EKSION",
+      "Varian": "EX",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "XPENG",
+      "Model": "G6",
+      "Varian": "PRO",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "XPENG",
+      "Model": "X9",
+      "Varian": "LONG RANGE PRO",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "XPENG",
+      "Model": "X9",
+      "Varian": "LONG RANGE PRO PLUS",
+      "JenisTransmisi": "OTOMATIS"
+    },
+    {
+      "Merk": "XPENG",
+      "Model": "X9",
+      "Varian": "STANDARD RANGE PRO",
+      "JenisTransmisi": "OTOMATIS"
+    }
+  ]
+}

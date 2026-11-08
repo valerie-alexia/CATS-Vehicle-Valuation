@@ -72,6 +72,7 @@ Thumbs.db
 /Data/audit/v2/ev_specialist_experiment/*
 !/Data/audit/v2/ev_specialist_experiment/ev_experiment_report.json
 !/Data/audit/v2/ev_specialist_experiment/ev_training_combinations.json
+!/Data/audit/v2/ev_specialist_experiment/ev_fitting_catalog.json
 /Experiments/
 # Active manifests and exact reviewed bundles only.
 /Models/*

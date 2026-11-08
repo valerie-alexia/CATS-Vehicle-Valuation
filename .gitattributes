@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Keep the verified catalog byte-identical on Windows and Unix checkouts.
+Data/audit/v2/ev_specialist_experiment/ev_fitting_catalog.json text eol=lf
