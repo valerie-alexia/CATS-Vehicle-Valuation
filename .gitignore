@@ -67,8 +67,28 @@ Thumbs.db
 !/Data/audit/v2/market_price_statistics.py
 # Reviewed dynamic helper for the dashboard EV fitting catalog.
 !/Data/audit/v2/pipeline_ev_experiment.py
+# Reviewed EV inference artifacts; evaluation CSVs remain ignored.
+!/Data/audit/v2/ev_specialist_experiment/
+/Data/audit/v2/ev_specialist_experiment/*
+!/Data/audit/v2/ev_specialist_experiment/ev_experiment_report.json
+!/Data/audit/v2/ev_specialist_experiment/ev_training_combinations.json
 /Experiments/
-/Models/
+# Active manifests and exact reviewed bundles only.
+/Models/*
+!/Models/Mobil123/
+/Models/Mobil123/*
+!/Models/Mobil123/active.json
+!/Models/Mobil123/versions/
+/Models/Mobil123/versions/*
+!/Models/Mobil123/versions/20261022T093559Z-5eaa62ee/
+/Models/Mobil123/versions/20261022T093559Z-5eaa62ee/*
+!/Models/Momotor/
+/Models/Momotor/*
+!/Models/Momotor/active.json
+!/Models/Momotor/versions/
+/Models/Momotor/versions/*
+!/Models/Momotor/versions/20261022T095302Z-b492bfaf/
+/Models/Momotor/versions/20261022T095302Z-b492bfaf/*
 /src/Scraping/
 
 # Datasets and model files outside those folders
@@ -76,6 +96,10 @@ Thumbs.db
 *.xlsx
 *.pkl
 *.joblib
+# Exact bundle exceptions must follow the global model-extension rule.
+!/Models/Mobil123/versions/20261022T093559Z-5eaa62ee/bundle.joblib
+!/Models/Momotor/versions/20261022T095302Z-b492bfaf/bundle.joblib
+!/Data/audit/v2/ev_specialist_experiment/ev_specialist_candidate.joblib
 
 # ==========================================
 # DOCKER

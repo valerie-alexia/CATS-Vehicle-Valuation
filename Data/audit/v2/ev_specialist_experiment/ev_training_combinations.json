@@ -1,0 +1,590 @@
+{
+  "status": "reconstructed",
+  "source": "Data\\clean\\CLEAN_MOBIL123_Oktober.csv",
+  "seed": 42,
+  "scope": "EV final train + validation",
+  "training_rows": 617,
+  "unique_combinations": 116,
+  "combinations": [
+    {
+      "Merk": "BMW",
+      "Model": "I4",
+      "Varian": "EDRIVE35"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "I5",
+      "Varian": "EDRIVE40 M SPORT"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "I7",
+      "Varian": "XDRIVE60 GRAN LUSSO"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "I7",
+      "Varian": "XDRIVE60 THE FIRST EDITION"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "IX",
+      "Varian": "XDRIVE40 SPORT"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "IX",
+      "Varian": "XDRIVE50 SPORT"
+    },
+    {
+      "Merk": "BMW",
+      "Model": "IX1",
+      "Varian": "EDRIVE20 M SPORT"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "ATTO",
+      "Varian": "1 LONG RANGE PREMIUM"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "ATTO",
+      "Varian": "1 STANDARD RANGE DYNAMIC"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "ATTO",
+      "Varian": "3 SUPERIOR"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "DOLPHIN",
+      "Varian": "PREMIUM EXTENDED RANGE"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "M6",
+      "Varian": "STANDARD 7 SEATER"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "M6",
+      "Varian": "SUPERIOR 7 SEATER"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "M6",
+      "Varian": "SUPERIOR CAPTAIN 6 SEATER"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEAL",
+      "Varian": "PERFORMANCE AWD"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEAL",
+      "Varian": "PREMIUM 4X2 AT"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEAL",
+      "Varian": "PREMIUM EXTENDED RANGE"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEALION 7",
+      "Varian": "PERFORMANCE"
+    },
+    {
+      "Merk": "BYD",
+      "Model": "SEALION 7",
+      "Varian": "PREMIUM"
+    },
+    {
+      "Merk": "CHANGAN",
+      "Model": "LUMIN",
+      "Varian": "MICRO CAR LISTRIK ELECTRIC"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6",
+      "Varian": "EV IWD"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6",
+      "Varian": "EV IWD PHANTOM EDITION"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6",
+      "Varian": "EV RWD"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6",
+      "Varian": "EV RWD PHANTOM EDITION"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "J6T",
+      "Varian": "IWD"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA",
+      "Varian": "J6T IWD"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA E5",
+      "Varian": "EV"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA E5",
+      "Varian": "EV PURE"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA J6",
+      "Varian": "EV IWD"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA J6",
+      "Varian": "EV IWD PHANTOM EDITION"
+    },
+    {
+      "Merk": "CHERY",
+      "Model": "OMODA J6",
+      "Varian": "EV RWD"
+    },
+    {
+      "Merk": "CITROEN",
+      "Model": "E-C3",
+      "Varian": "ELECTRIC"
+    },
+    {
+      "Merk": "DENZA",
+      "Model": "D9",
+      "Varian": "ADVANCED"
+    },
+    {
+      "Merk": "FIAT",
+      "Model": "ABARTH",
+      "Varian": "500E"
+    },
+    {
+      "Merk": "GAC",
+      "Model": "AION",
+      "Varian": "UT PREMIUM"
+    },
+    {
+      "Merk": "GAC",
+      "Model": "AION",
+      "Varian": "V LUXURY"
+    },
+    {
+      "Merk": "GAC",
+      "Model": "AION",
+      "Varian": "Y PLUS 410 EXCLUSIVE"
+    },
+    {
+      "Merk": "GAC",
+      "Model": "HYPTEC HT",
+      "Varian": "PREMIUM"
+    },
+    {
+      "Merk": "GEELY",
+      "Model": "EX",
+      "Varian": "5 MAX"
+    },
+    {
+      "Merk": "GENESIS",
+      "Model": "G80",
+      "Varian": "ELECTRIFIED"
+    },
+    {
+      "Merk": "GWM",
+      "Model": "ORA",
+      "Varian": "03"
+    },
+    {
+      "Merk": "GWM",
+      "Model": "ORA",
+      "Varian": "03 PRO"
+    },
+    {
+      "Merk": "HUMMER",
+      "Model": "GMC",
+      "Varian": "EV HEV EDITION 1"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ",
+      "Varian": "PRIME"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ",
+      "Varian": "SIGNATURE"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "N PERFORMANCE"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "PRIME LONG RANGE"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "PRIME STANDARD RANGE"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "SIGNATURE LONG RANGE"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 5",
+      "Varian": "SIGNATURE STANDARD RANGE"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 6",
+      "Varian": "FASTBACK"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 6",
+      "Varian": "FASTBACK MESIN & TRANSMISI"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "IONIQ 6",
+      "Varian": "FASTBACK NO PR"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "KONA",
+      "Varian": "EV"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "KONA",
+      "Varian": "PRIME LONG RANGE"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "KONA",
+      "Varian": "SIGNATURE"
+    },
+    {
+      "Merk": "HYUNDAI",
+      "Model": "KONA",
+      "Varian": "SIGNATURE LONG RANGE"
+    },
+    {
+      "Merk": "JAECOO",
+      "Model": "J5",
+      "Varian": "PREMIUM"
+    },
+    {
+      "Merk": "JAGUAR",
+      "Model": "I-PACE",
+      "Varian": "1 R DYNAMIC GREY"
+    },
+    {
+      "Merk": "JAGUAR",
+      "Model": "I-PACE",
+      "Varian": "R DYNAMIC HSE"
+    },
+    {
+      "Merk": "KIA",
+      "Model": "EV6",
+      "Varian": "GT-LINE"
+    },
+    {
+      "Merk": "KIA",
+      "Model": "EV9",
+      "Varian": "GT-LINE"
+    },
+    {
+      "Merk": "LEXUS",
+      "Model": "RZ",
+      "Varian": "450E LUXURY"
+    },
+    {
+      "Merk": "LEXUS",
+      "Model": "UX",
+      "Varian": "300E"
+    },
+    {
+      "Merk": "MAXUS",
+      "Model": "MIFA-9",
+      "Varian": "PREMIUM"
+    },
+    {
+      "Merk": "MERCEDES-BENZ",
+      "Model": "EQE350+",
+      "Varian": "ELECTRIC ART LINE"
+    },
+    {
+      "Merk": "MERCEDES-BENZ",
+      "Model": "EQS450",
+      "Varian": "AMG LINE 4MATIC"
+    },
+    {
+      "Merk": "MERCEDES-BENZ",
+      "Model": "EQS450+",
+      "Varian": "AMG LINE"
+    },
+    {
+      "Merk": "MERCEDES-BENZ",
+      "Model": "EQS450+",
+      "Varian": "ELECTRIC ART LINE"
+    },
+    {
+      "Merk": "MG",
+      "Model": "CYBERSTER",
+      "Varian": "UNKNOWN"
+    },
+    {
+      "Merk": "MG",
+      "Model": "ES",
+      "Varian": "EV"
+    },
+    {
+      "Merk": "MG",
+      "Model": "ZS",
+      "Varian": "EV MAGNIFY"
+    },
+    {
+      "Merk": "MINI",
+      "Model": "COOPER",
+      "Varian": "COOPER SE"
+    },
+    {
+      "Merk": "NETA",
+      "Model": "NETA V",
+      "Varian": "UNKNOWN"
+    },
+    {
+      "Merk": "NETA",
+      "Model": "NETA X",
+      "Varian": "500 ELITE"
+    },
+    {
+      "Merk": "NETA",
+      "Model": "NETA X",
+      "Varian": "500 SUPREME"
+    },
+    {
+      "Merk": "NISSAN",
+      "Model": "LEAF",
+      "Varian": "UNKNOWN"
+    },
+    {
+      "Merk": "PORSCHE",
+      "Model": "TAYCAN",
+      "Varian": "PERFORMANCE BATTERY"
+    },
+    {
+      "Merk": "PORSCHE",
+      "Model": "TAYCAN",
+      "Varian": "PERFORMANCE BATTERY PLUS"
+    },
+    {
+      "Merk": "PORSCHE",
+      "Model": "TAYCAN",
+      "Varian": "TURBO"
+    },
+    {
+      "Merk": "SMART",
+      "Model": "EQ",
+      "Varian": "FORTWO"
+    },
+    {
+      "Merk": "SMART",
+      "Model": "EQ",
+      "Varian": "FORTWO 0 BASE SPEC"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL 3",
+      "Varian": ".0 STANDARD RANGE"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL 3",
+      "Varian": "LONG RANGE"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL 3",
+      "Varian": "STANDARD RANGE"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL 3",
+      "Varian": "STANDARD RANGE PLUS"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL S",
+      "Varian": "P100D"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL X",
+      "Varian": "75D"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL Y",
+      "Varian": "LONG RANGE"
+    },
+    {
+      "Merk": "TESLA",
+      "Model": "MODEL Y",
+      "Varian": "STANDARD"
+    },
+    {
+      "Merk": "TOYOTA",
+      "Model": "BZ4X",
+      "Varian": "UNKNOWN"
+    },
+    {
+      "Merk": "VOLKSWAGEN",
+      "Model": "ID. BUZZ",
+      "Varian": "BUSINESS EDITION"
+    },
+    {
+      "Merk": "VOLKSWAGEN",
+      "Model": "ID. BUZZ",
+      "Varian": "LWB"
+    },
+    {
+      "Merk": "VOLVO",
+      "Model": "EX30",
+      "Varian": "PLUS"
+    },
+    {
+      "Merk": "VOLVO",
+      "Model": "EX30",
+      "Varian": "ULTRA"
+    },
+    {
+      "Merk": "VOLVO",
+      "Model": "XC40",
+      "Varian": "RECHARGE ULTIMATE"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LITE"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LITE 300KM"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LITE LONG RANGE"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LONG RANGE"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LONG RANGE + CHARGING"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "LONG RANGE 300PRO. COATING"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "PRO 300KM"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "AIR EV",
+      "Varian": "STANDARD RANGE"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "BINGUO EV",
+      "Varian": "333 LONG RANGE AC"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "BINGUO EV",
+      "Varian": "333 LONG RANGE AC/DC"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "BINGUO EV",
+      "Varian": "410 PREMIUM RANGE AC/DC"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "BINGUO EV",
+      "Varian": "LITE"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "CLOUD EV",
+      "Varian": "460KM"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "CLOUD EV",
+      "Varian": "LITE"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "DARION",
+      "Varian": "EX"
+    },
+    {
+      "Merk": "WULING",
+      "Model": "EKSION",
+      "Varian": "EX"
+    },
+    {
+      "Merk": "XPENG",
+      "Model": "G6",
+      "Varian": "PRO"
+    },
+    {
+      "Merk": "XPENG",
+      "Model": "X9",
+      "Varian": "LONG RANGE PRO"
+    },
+    {
+      "Merk": "XPENG",
+      "Model": "X9",
+      "Varian": "LONG RANGE PRO PLUS"
+    },
+    {
+      "Merk": "XPENG",
+      "Model": "X9",
+      "Varian": "STANDARD RANGE PRO"
+    }
+  ]
+}

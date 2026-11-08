@@ -1,0 +1,56 @@
+{
+  "experiment": "EV specialist isolated",
+  "timestamp_utc": "2026-10-25T17:55:00.316647+00:00",
+  "production_modified": false,
+  "seed": 42,
+  "algorithm": "xgboost",
+  "rounds": 395,
+  "data_counts": {
+    "train": 496,
+    "validation": 121,
+    "refit": 617,
+    "calibration": 105,
+    "test": 116
+  },
+  "validation_scores": {
+    "xgboost": {
+      "n": 121,
+      "mae_rp": 62932992.13223141,
+      "rmse_rp": 124150865.30070245,
+      "mape_pct": 9.612959935429945
+    },
+    "lightgbm": {
+      "n": 121,
+      "mae_rp": 113906181.3359502,
+      "rmse_rp": 213534880.1720058,
+      "mape_pct": 19.138801947045643
+    }
+  },
+  "test_metrics": {
+    "n": 116,
+    "mae_rp": 77876468.68965517,
+    "rmse_rp": 141777820.4161938,
+    "mape_pct": 13.684977627273142,
+    "coverage_sd": 0.8362068965517241,
+    "mean_band_width_rp": 273623040.0
+  },
+  "ioniq5_test_metrics": {
+    "n": 16,
+    "mae_rp": 69086164.0,
+    "rmse_rp": 97978866.19558991,
+    "mape_pct": 12.769676772012165
+  },
+  "band": {
+    "sd_halfwidth": 0.23156268838463617,
+    "coverage_sd_test": 0.8362068965517241,
+    "quantile_halfwidth": 0.3821456887881686,
+    "quantile_coverage_test": 0.9396551724137931
+  },
+  "limitations": [
+    "Hasil masih eksploratif.",
+    "Test EV sudah diperiksa dalam eksperimen sebelumnya.",
+    "Belum menjadi model produksi.",
+    "Belum terintegrasi dengan validasi API.",
+    "Tidak mempunyai fitur kesehatan baterai."
+  ]
+}
