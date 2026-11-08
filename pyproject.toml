@@ -1,0 +1,29 @@
+[project]
+name = "cats-vehicle-valuation"
+version = "0.1.0"
+description = "Vehicle valuation demo for PT Warna Warni Media"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy==2.2.5",
+    "pandas==2.2.3",
+    "scikit-learn==1.6.1",
+    "xgboost==3.0.2",
+    "lightgbm==4.7.0",
+    "joblib==1.5.1",
+    "streamlit==1.64.0",
+    "altair",
+    "fastapi==0.142.4",
+    "pydantic==2.13.5",
+    "uvicorn==0.54.0",
+]
+
+# The legacy demo uses native TreeSHAP in XGBoost/LightGBM.
+# No standalone shap package is needed by its runtime imports.
+[dependency-groups]
+dev = [
+    "pytest",
+    "httpx>=0.27,<1",
+]
+
+[tool.uv]
+package = false
