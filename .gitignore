@@ -52,7 +52,19 @@ Thumbs.db
 # PRIVATE DATA / TRAINING ARTIFACTS
 # Temporarily blocked until individually reviewed
 # ==========================================
-/Data/
+/Data/*
+!/Data/audit/
+/Data/audit/*
+!/Data/audit/v2/
+/Data/audit/v2/*
+# Reviewed backend runtime only; all other Data contents remain ignored.
+!/Data/audit/v2/cats_demo_app.py
+!/Data/audit/v2/cats_market_api_experiment.py
+!/Data/audit/v2/ev_category_review.py
+!/Data/audit/v2/ev_combination_review.py
+!/Data/audit/v2/ev_inference_experiment.py
+!/Data/audit/v2/market_price_category.py
+!/Data/audit/v2/market_price_statistics.py
 /Experiments/
 /Models/
 /src/Scraping/
