@@ -90,7 +90,9 @@ Thumbs.db
 /Models/Momotor/versions/*
 !/Models/Momotor/versions/20261022T095302Z-b492bfaf/
 /Models/Momotor/versions/20261022T095302Z-b492bfaf/*
-/src/Scraping/
+/src/Scraping/*
+!/src/Scraping/scrape_mobil123.py
+!/src/Scraping/scrape_momotor.py
 
 # Datasets and model files outside those folders
 *.csv
