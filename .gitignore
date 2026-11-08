@@ -1,0 +1,69 @@
+
+# ==========================================
+# PYTHON
+# ==========================================
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# ==========================================
+# ENVIRONMENT & SECRETS
+# ==========================================
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+
+# ==========================================
+# LOCAL CONFIG & EDITOR
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# LOGS & TEMPORARY FILES
+# ==========================================
+*.log
+*.tmp
+*.bak
+*.backup
+*.sqlite
+*.sqlite3
+
+# ==========================================
+# PRIVATE DATA / TRAINING ARTIFACTS
+# Temporarily blocked until individually reviewed
+# ==========================================
+/Data/
+/Experiments/
+/Models/
+/src/Scraping/
+
+# Datasets and model files outside those folders
+*.csv
+*.xlsx
+*.pkl
+*.joblib
+
+# ==========================================
+# DOCKER
+# ==========================================
+docker-compose.override.yml
