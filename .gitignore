@@ -65,6 +65,8 @@ Thumbs.db
 !/Data/audit/v2/ev_inference_experiment.py
 !/Data/audit/v2/market_price_category.py
 !/Data/audit/v2/market_price_statistics.py
+# Reviewed dynamic helper for the dashboard EV fitting catalog.
+!/Data/audit/v2/pipeline_ev_experiment.py
 /Experiments/
 /Models/
 /src/Scraping/
