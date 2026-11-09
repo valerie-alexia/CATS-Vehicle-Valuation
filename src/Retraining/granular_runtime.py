@@ -42,7 +42,7 @@ def adapt_bundle(bundle, path):
     # The experiment did not save a catalog. Reconstruct fitting identities from
     # its frozen source_row manifest; no fitting, deduplication, or split creation.
     inputs = {k.replace('\\', '/'): v for k, v in config['inputs'].items()}
-    if exp.sha256(exp.SOURCE) != inputs[exp.SOURCE.relative_to(exp.ROOT).as_posix()]:
+    if exp.sha256(exp.SOURCE) != inputs[exp.SOURCE_PROVENANCE]:
         raise ValueError('Dataset katalog berbeda dari sumber eksperimen')
     manifest = bundle['split_manifest']
     rows = manifest.loc[manifest.split.isin(['train', 'validation']), 'source_row'].to_numpy(dtype=int)

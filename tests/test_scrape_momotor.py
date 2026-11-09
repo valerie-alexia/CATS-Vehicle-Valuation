@@ -145,7 +145,7 @@ def test_defaults_match_cleaner_and_mobil123(monkeypatch):
     run = Mock()
     monkeypatch.setattr(scraper, 'run_scraper', run)
     scraper.main([])
-    run.assert_called_once_with('Oktober', scraper.ROOT / 'Data/raw', 'all')
+    run.assert_called_once_with(__import__('datetime').datetime.now().strftime('%Y-%m'), scraper.ROOT / 'Data/raw', 'all')
 
 
 @pytest.mark.parametrize('batch', ['', '../escape', 'a/b', 'a\\b'])
@@ -194,7 +194,8 @@ def test_raw_schema_resume_autosave_and_final_flush(monkeypatch, tmp_path, mobil
     scraper.run_scraper('Oktober', tmp_path, 'detail')
     raw = pd.read_csv(output)
     assert driver.visits == links[5:] and driver.closed
-    assert writes == [(output, 25), (output, 26)]
+    assert [n for _, n in writes] == [25, 26]
+    assert all(p.parent == output.parent and p.name.startswith('.' + output.name + '.') for p, _ in writes)
     assert len(raw) == 26 and raw.link.is_unique
     assert set(raw.columns) == {'link', 'tanggal_posting', 'waktu_scrape', 'nama_motor',
         'merk', 'lokasi', 'Bahan bakar', 'Kilometer', 'Transmisi', 'Kapasitas mesin', 'Penjual', 'harga'}
