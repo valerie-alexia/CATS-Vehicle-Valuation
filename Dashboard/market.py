@@ -1,5 +1,6 @@
 """Streamlit views over the shared, read-only marketplace index."""
 import logging
+import re
 from datetime import datetime
 
 import pandas as pd
@@ -12,19 +13,39 @@ from Dashboard.display_catalog import HIDDEN_VARIANTS
 logger = logging.getLogger(__name__)
 
 
+def listing_capture_date(scraped_at, batch=None):
+    """Format capture provenance for display without inventing a per-listing date."""
+    if pd.notna(scraped_at) and str(scraped_at).strip():
+        return scraped_at
+    months = ('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+              'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember')
+    if isinstance(batch, str):
+        batch = batch.strip()
+        # These legacy snapshots were confirmed as 2026 during the naming migration.
+        batch = {'April': '2026-04', 'Oktober': '2026-10'}.get(batch, batch)
+        match = re.fullmatch(r'(\d{4})-(0[1-9]|1[0-2])', batch)
+        if match:
+            year, month = match.groups()
+            return f'{months[int(month) - 1]} {year} (tanggal tidak tercatat)'
+    return 'Tanggal pengambilan tidak diketahui'
+
+
 def show_snapshot(metadata):
     if not metadata:
         return
     start = metadata.get('snapshot_start') or 'tidak tersedia'
     end = metadata.get('snapshot_end') or 'tidak tersedia'
     st.caption(f'Sumber: {metadata["source"]} | Snapshot bertanggal: {start} — {end}. '
-               'Waktu mengikuti catatan sumber. Tanggal record yang tidak tersedia dibiarkan kosong.')
+               'Waktu mengikuti catatan sumber. Jika tanggal iklan tidak tercatat, '
+               'periode batch ditampilkan bila tersedia.')
     st.caption('Harga adalah penawaran iklan, bukan harga transaksi. Tautan belum diperiksa aktif; '
                'tautan kategori/unknown bukan halaman iklan individual.')
 
 
 def show_listings(items):
     data = pd.DataFrame(items)
+    data['scraped_at'] = [listing_capture_date(item.get('scraped_at'), item.get('batch'))
+                          for item in items]
     columns = {'merk': 'Merek', 'model': 'Model', 'varian': 'Varian', 'tahun': 'Tahun',
                'kilometer': 'Kilometer', 'jenis_transmisi': 'Transmisi',
                'kapasitas_mesin': 'Mesin (cc)', 'tipe_bodi': 'Tipe bodi',
