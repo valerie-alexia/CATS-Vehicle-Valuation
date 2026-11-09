@@ -1,6 +1,5 @@
 """Momotor notebook scraper exposed as an import-safe CLI; no training or cleaning."""
 import argparse
-import sys
 import os
 from pathlib import Path
 import re
@@ -10,10 +9,6 @@ import datetime
 import random
 
 ROOT = Path(__file__).resolve().parents[2]
-if __package__ in {None, ''}:
-    sys.path.insert(0, str(ROOT))
-from src.data_batch import default_batch, save_scrape
-
 
 
 class AccessControlError(RuntimeError):
@@ -157,7 +152,6 @@ def run_scraper(batch, output_dir, stage='all'):
     JALANKAN_TAHAP_1 = stage in {'links', 'all'}
     print(f'File links : {FILE_LINKS}')
     print(f'File hasil : {FILE_HASIL}')
-    data_baru = []
     driver = _create_driver(uc)
     try:
         wait = WebDriverWait(driver, 10)
@@ -185,7 +179,7 @@ def run_scraper(batch, output_dir, stage='all'):
 
             if df_existing.columns.tolist() != expected_cols:
                 df_existing = df_existing[expected_cols]
-                save_scrape(df_existing, FILE_LINKS)
+                df_existing.to_csv(FILE_LINKS, index=False)
 
             all_links = set(df_existing["link"].dropna().tolist())
 
@@ -362,7 +356,7 @@ def run_scraper(batch, output_dir, stage='all'):
                 if new_data_in_page:
                     df_new_links = pd.DataFrame(new_data_in_page)
                     write_header = not os.path.exists(FILE_LINKS)
-                    save_scrape(df_new_links, FILE_LINKS, append=True)
+                    df_new_links.to_csv(FILE_LINKS, mode='a', index=False, header=write_header)
             
                 print(f"    Tersimpan {link_baru_tahun_ini} link baru untuk tahun {tahun}.")
                 time.sleep(2)
@@ -379,7 +373,7 @@ def run_scraper(batch, output_dir, stage='all'):
         if 'terjual' not in df_links.columns:
             df_links['terjual'] = 0
 
-        daftar_link = df_links[df_links['terjual'] != 1]['link'].dropna().drop_duplicates().tolist()
+        daftar_link = df_links[df_links['terjual'] != 1]['link'].tolist()
 
         if 'tanggal_posting' in df_links.columns:
             dict_tgl_posting = dict(zip(df_links['link'], df_links['tanggal_posting']))
@@ -390,7 +384,7 @@ def run_scraper(batch, output_dir, stage='all'):
         if os.path.exists(FILE_HASIL):
             df_selesai = pd.read_csv(FILE_HASIL, low_memory=False)
             if 'link' in df_selesai.columns:
-                link_sudah_selesai = df_selesai['link'].dropna().drop_duplicates().tolist()
+                link_sudah_selesai = df_selesai['link'].tolist()
 
         target_sisa = len(daftar_link) - len(link_sudah_selesai)
         data_baru = [] 
@@ -416,7 +410,7 @@ def run_scraper(batch, output_dir, stage='all'):
                 terjual_elem = soup.find(string=re.compile("Mobil ini sudah terjual|Motor ini sudah terjual", re.IGNORECASE))
                 if terjual_elem:
                     df_links.loc[df_links['link'] == link, 'terjual'] = 1
-                    save_scrape(df_links, FILE_LINKS)
+                    df_links.to_csv(FILE_LINKS, index=False)
                     continue 
         
                 try:
@@ -467,7 +461,6 @@ def run_scraper(batch, output_dir, stage='all'):
                 details["harga"] = harga_final
 
                 data_baru.append(details)
-                link_sudah_selesai.append(link)
                 count_disimpan += 1
         
                 if count_disimpan % 20 == 0:
@@ -477,9 +470,9 @@ def run_scraper(batch, output_dir, stage='all'):
                     if os.path.exists(FILE_HASIL):
                         df_lama = pd.read_csv(FILE_HASIL, low_memory=False)
                         df_gabungan = pd.concat([df_lama, df_temp_baru], ignore_index=True)
-                        save_scrape(df_gabungan, FILE_HASIL)
+                        df_gabungan.to_csv(FILE_HASIL, index=False)
                     else:
-                        save_scrape(df_temp_baru, FILE_HASIL)
+                        df_temp_baru.to_csv(FILE_HASIL, index=False)
                     data_baru = []
             
                 if count_disimpan % 100 == 0:
@@ -496,23 +489,18 @@ def run_scraper(batch, output_dir, stage='all'):
             if os.path.exists(FILE_HASIL):
                 df_lama = pd.read_csv(FILE_HASIL, low_memory=False)
                 df_gabungan = pd.concat([df_lama, df_temp_baru], ignore_index=True)
-                save_scrape(df_gabungan, FILE_HASIL)
+                df_gabungan.to_csv(FILE_HASIL, index=False)
             else:
-                save_scrape(df_temp_baru, FILE_HASIL)
+                df_temp_baru.to_csv(FILE_HASIL, index=False)
 
-        data_baru = []
         print("\n\nEkstraksi Momotor Selesai Total!")
     finally:
-        try:
-            if data_baru:
-                save_scrape(pd.DataFrame(data_baru), FILE_HASIL, append=True)
-        finally:
-            driver.quit()
+        driver.quit()
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Scraper Momotor; hanya jalankan dengan izin penggunaan situs.')
-    parser.add_argument('--batch', default=default_batch())
+    parser.add_argument('--batch', default=os.environ.get('CATS_BATCH', 'Oktober'))
     parser.add_argument('--stage', choices=['links', 'detail', 'all'], default='all')
     parser.add_argument('--output-dir', type=Path,
                         default=Path(os.environ.get('CATS_RAW_DIR', str(ROOT / 'Data/raw'))))

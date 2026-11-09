@@ -32,9 +32,9 @@ def test_default_paths(monkeypatch):
     for name in ['CATS_BATCH', 'CATS_RAW_DIR', 'CATS_CLEAN_DIR']:
         monkeypatch.delenv(name, raising=False)
     module = load_module(ROOT / 'src/Preprocessing/DataCleaning.py')
-    assert module.BATCH is None
-    assert module.CSV_MOBIL == ROOT / 'Data/raw/MOBIL123_raw_dataset_None.csv'
-    assert module.CSV_MOTOR == ROOT / 'Data/raw/MOMOTOR_raw_dataset_None.csv'
+    assert module.BATCH == 'Oktober'
+    assert module.CSV_MOBIL == ROOT / 'Data/raw/MOBIL123_raw_dataset_Oktober.csv'
+    assert module.CSV_MOTOR == ROOT / 'Data/raw/MOMOTOR_raw_dataset_Oktober.csv'
     assert module.DIR_CLEAN == ROOT / 'Data/clean'
 
 
@@ -56,8 +56,6 @@ def test_external_paths_and_batch(monkeypatch, tmp_path):
 def test_missing_input_fails_before_any_cleaning(monkeypatch, tmp_path, capsys, vehicle):
     monkeypatch.setattr(cleaning, 'CSV_MOBIL', tmp_path / 'missing_car.csv')
     monkeypatch.setattr(cleaning, 'CSV_MOTOR', tmp_path / 'missing_motor.csv')
-    monkeypatch.setattr(cleaning, 'BATCH', 'missing')
-    monkeypatch.setattr(cleaning, 'DIR_RAW', tmp_path)
     car, motor = Mock(), Mock()
     monkeypatch.setattr(cleaning, 'clean_mobil', car)
     monkeypatch.setattr(cleaning, 'clean_motor', motor)
@@ -74,9 +72,6 @@ def test_missing_input_fails_before_any_cleaning(monkeypatch, tmp_path, capsys, 
 def test_all_preflight_prevents_partial_output(monkeypatch, tmp_path):
     present = tmp_path / 'present.csv'
     present.touch()  # Path-only dispatch fixture; never parsed as RAW data.
-    monkeypatch.setattr(cleaning, 'BATCH', 'test')
-    monkeypatch.setattr(cleaning, 'DIR_RAW', tmp_path)
-    (tmp_path / 'MOBIL123_raw_dataset_test.csv').touch()
     monkeypatch.setattr(cleaning, 'CSV_MOBIL', present)
     monkeypatch.setattr(cleaning, 'CSV_MOTOR', tmp_path / 'missing.csv')
     with patch.object(cleaning, 'clean_mobil') as car, patch.object(cleaning, 'clean_motor') as motor:
@@ -89,10 +84,6 @@ def test_all_preflight_prevents_partial_output(monkeypatch, tmp_path):
 def test_entrypoint_dispatch_only(monkeypatch, tmp_path, vehicle, expected):
     placeholder = tmp_path / 'present.csv'
     placeholder.touch()  # No dataset is generated or processed in this test.
-    monkeypatch.setattr(cleaning, 'BATCH', 'test')
-    monkeypatch.setattr(cleaning, 'DIR_RAW', tmp_path)
-    for prefix in ['MOBIL123', 'MOMOTOR']:
-        pd.DataFrame({name: ['OFFLINE_DISPATCH_FIXTURE'] for name in ['link', 'nama_mobil', 'nama_motor', 'merk', 'harga', 'Kilometer', 'Transmisi', 'Tipe Bahan Bakar', 'Bahan bakar']}).to_csv(tmp_path / f'{prefix}_raw_dataset_test.csv', index=False)
     monkeypatch.setattr(cleaning, 'CSV_MOBIL', placeholder)
     monkeypatch.setattr(cleaning, 'CSV_MOTOR', placeholder)
     with patch.object(cleaning, 'clean_mobil') as car, patch.object(cleaning, 'clean_motor') as motor:
@@ -132,13 +123,11 @@ def test_legacy_logic_and_safe_fixture_parity(tmp_path, monkeypatch):
     after = ast.parse((ROOT / 'src/Preprocessing/DataCleaning.py').read_text(encoding='utf-8'))
     definitions = {node.name: node for node in before.body if isinstance(node, ast.FunctionDef)}
     for node in after.body:
-        if not isinstance(node, ast.FunctionDef) or node.name in {'main', 'simpan_hasil', 'batch_provenance'}: continue
+        if not isinstance(node, ast.FunctionDef) or node.name == 'main': continue
         old = definitions[node.name]
         if node.name in {'clean_mobil', 'clean_motor'}:
             # Only the first read_csv FileNotFoundError handler is intentionally changed.
             old.body[1].handlers = node.body[1].handlers
-            # Batch provenance is preserved when a historical CLEAN was renamed.
-            old.body[2] = node.body[2]
         assert ast.dump(old, include_attributes=False) == ast.dump(node, include_attributes=False), node.name
     frame = pd.DataFrame({'harga': [10_000_000, 15_000_000_000, -1, np.inf],
                           'Kilometer': [50000, 1000, 100, 200]})

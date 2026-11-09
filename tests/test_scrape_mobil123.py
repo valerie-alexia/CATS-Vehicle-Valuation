@@ -119,7 +119,7 @@ def test_default_configuration_matches_cleaner(monkeypatch):
     run = Mock()
     monkeypatch.setattr(scraper, 'run_scraper', run)
     scraper.main([])
-    run.assert_called_once_with(__import__('datetime').datetime.now().strftime('%Y-%m'), scraper.ROOT / 'Data/raw', 'all')
+    run.assert_called_once_with('Oktober', scraper.ROOT / 'Data/raw', 'all')
 
 
 @pytest.mark.parametrize('batch', ['../escape', '', 'a/b', 'a\\b'])
@@ -180,8 +180,7 @@ def test_detail_schema_resume_and_autosave(monkeypatch, tmp_path):
     assert driver.visits == links[5:]
     assert driver.closed
     assert len(raw) == 25 and raw.link.is_unique
-    assert len(writes) == 1  # Twenty records are autosaved via a staged sibling file.
-    assert writes[0].parent == output.parent and writes[0].name.startswith('.' + output.name + '.')
+    assert writes == [output]  # The inherited 20-record autosave boundary was reached.
     assert {'link', 'tanggal_scrape', 'nama_mobil', 'harga', 'Tahun Kendaraan', 'Kilometer',
             'Cakupan mesin', 'Transmisi', 'Tipe Bahan Bakar', 'Pintu', 'Fitur_ABS',
             'tanggal_update'} == set(raw.columns)

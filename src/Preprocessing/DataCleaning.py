@@ -17,7 +17,6 @@ Catatan keputusan (untuk bab metodologi):
 """
 
 import argparse
-import sys
 import os
 import re
 from pathlib import Path
@@ -30,11 +29,7 @@ import pandas as pd
 # KONFIGURASI
 # ======================================================
 ROOT = Path(__file__).resolve().parents[2]
-if __package__ in {None, ''}:
-    sys.path.insert(0, str(ROOT))
-from src.data_batch import atomic_csvs, latest_raw_batch, validate_batch
-
-BATCH = os.environ.get('CATS_BATCH', '').strip() or None
+BATCH = os.environ.get('CATS_BATCH', 'Oktober')
 DIR_RAW = Path(os.environ.get('CATS_RAW_DIR', str(ROOT / 'Data/raw')))
 CSV_MOBIL = DIR_RAW / f'MOBIL123_raw_dataset_{BATCH}.csv'
 CSV_MOTOR = DIR_RAW / f'MOMOTOR_raw_dataset_{BATCH}.csv'
@@ -323,18 +318,11 @@ def finalisasi_bersih(df_bersih):
     return df_bersih
 
 
-def batch_provenance(path):
-    """Keep the original label of renamed historical CLEAN; new batches use YYYY-MM."""
-    legacy = {'2026-04': 'April', '2026-10': 'Oktober'}
-    if BATCH in legacy and Path(path).is_file():
-        labels = pd.read_csv(path, usecols=['batch_id'])['batch_id'].dropna().unique()
-        if len(labels) == 1 and labels[0] == legacy[BATCH]:
-            return legacy[BATCH]
-    return BATCH
-
-
 def simpan_hasil(df_bersih, df_antik, df_anomali, path_bersih, path_antik, path_anomali):
-    atomic_csvs([(path_bersih, df_bersih), (path_antik, df_antik), (path_anomali, df_anomali)])
+    os.makedirs(DIR_CLEAN, exist_ok=True)
+    df_bersih.to_csv(path_bersih, index=False)
+    df_antik.to_csv(path_antik, index=False)
+    df_anomali.to_csv(path_anomali, index=False)
 
 
 # ======================================================
@@ -545,7 +533,7 @@ def clean_mobil():
     except FileNotFoundError:
         raise FileNotFoundError(f"File RAW mobil tidak ditemukan: {CSV_MOBIL}") from None
 
-    df['batch_id'] = batch_provenance(OUT_MOBIL_BERSIH)
+    df['batch_id'] = BATCH
 
     # --- Judul, tahun, merk, tipe bodi ---
     df = normalisasi_judul_mobil(df)
@@ -692,7 +680,7 @@ def clean_motor():
     except FileNotFoundError:
         raise FileNotFoundError(f"File RAW motor tidak ditemukan: {CSV_MOTOR}") from None
 
-    df['batch_id'] = batch_provenance(OUT_MOTOR_BERSIH)
+    df['batch_id'] = BATCH
 
     df['TahunUnit'] = df['nama_motor'].str.extract(POLA_TAHUN, expand=False).astype(float)
     df = normalisasi_teks_kategori(df, 'merk', mode='upper')
@@ -750,43 +738,12 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description='Cleaning RAW Mobil123/Momotor tanpa training.')
     parser.add_argument('--vehicle', choices=['mobil', 'motor', 'all'], default='all')
     args = parser.parse_args(argv)
-    global BATCH, CSV_MOBIL, CSV_MOTOR
-    global OUT_MOBIL_BERSIH, OUT_MOBIL_ANTIK, OUT_MOBIL_ANOMALI
-    global OUT_MOTOR_BERSIH, OUT_MOTOR_ANTIK, OUT_MOTOR_ANOMALI
-    try:
-        batch = validate_batch(BATCH) if BATCH else latest_raw_batch(
-            DIR_RAW, ['MOBIL123', 'MOMOTOR'] if args.vehicle == 'all'
-            else ['MOBIL123' if args.vehicle == 'mobil' else 'MOMOTOR'])
-    except ValueError as exc:
-        parser.error(str(exc))
-    BATCH = batch
-    CSV_MOBIL = DIR_RAW / f'MOBIL123_raw_dataset_{batch}.csv'
-    CSV_MOTOR = DIR_RAW / f'MOMOTOR_raw_dataset_{batch}.csv'
-    OUT_MOBIL_BERSIH = DIR_CLEAN / f'CLEAN_MOBIL123_{batch}.csv'
-    OUT_MOBIL_ANTIK = DIR_CLEAN / f'CLEAN_Antik_MOBIL123_{batch}.csv'
-    OUT_MOBIL_ANOMALI = DIR_CLEAN / f'CLEAN_Anomali_MOBIL123_{batch}.csv'
-    OUT_MOTOR_BERSIH = DIR_CLEAN / f'CLEAN_MOMOTOR_{batch}.csv'
-    OUT_MOTOR_ANTIK = DIR_CLEAN / f'CLEAN_Antik_MOMOTOR_{batch}.csv'
-    OUT_MOTOR_ANOMALI = DIR_CLEAN / f'CLEAN_Anomali_MOMOTOR_{batch}.csv'
-    print(f'Batch RAW terpilih: {batch}')
     selected = [('mobil', CSV_MOBIL, clean_mobil), ('motor', CSV_MOTOR, clean_motor)]
     if args.vehicle != 'all':
         selected = [item for item in selected if item[0] == args.vehicle]
     missing = [str(path) for _, path, _ in selected if not path.is_file()]
     if missing:
         parser.error('File RAW tidak ditemukan: ' + ', '.join(missing))
-    required = {
-        'mobil': {'link', 'nama_mobil', 'harga', 'Kilometer', 'Transmisi', 'Tipe Bahan Bakar'},
-        'motor': {'link', 'nama_motor', 'merk', 'harga', 'Kilometer', 'Transmisi', 'Bahan bakar'},
-    }
-    for vehicle, path, _ in selected:
-        try:
-            sample = pd.read_csv(path, nrows=1)
-        except (OSError, ValueError, pd.errors.ParserError) as exc:
-            parser.error(f'RAW {vehicle} belum siap dibaca ({type(exc).__name__}); CLEAN tidak diubah.')
-        absent = required[vehicle] - set(sample.columns)
-        if sample.empty or absent:
-            parser.error(f'RAW {vehicle} belum siap: kosong atau kolom wajib kurang {sorted(absent)}; CLEAN tidak diubah.')
 
     print("=" * 60)
     print("MEMULAI PIPELINE PEMBERSIHAN DATA CATS")
