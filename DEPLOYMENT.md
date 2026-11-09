@@ -172,16 +172,16 @@ HTTP 200 bukan persetujuan appraisal.
 
 Konfigurasi lingkungan:
 
-- CATS_BATCH: default Oktober
+- CATS_BATCH: opsional; kosong untuk batch otomatis. Scraper memakai bulan lokal `YYYY-MM` saat mulai. Cleaner memilih batch RAW bulanan terbaru untuk kendaraan terpilih; bila batch terbaru mobil/motor berbeda, gunakan `--vehicle` atau override eksplisit.
 - CATS_RAW_DIR: default Data/raw
 - CATS_CLEAN_DIR: default Data/clean
 - VEHICLE_EVIDENCE_DIR: lokasi snapshot CLEAN
 
 Snapshot CLEAN lokal yang telah diuji:
-- CLEAN_MOBIL123_April.csv
-- CLEAN_MOBIL123_Oktober.csv
-- CLEAN_MOMOTOR_April.csv
-- CLEAN_MOMOTOR_Oktober.csv
+- CLEAN_MOBIL123_2026-04.csv
+- CLEAN_MOBIL123_2026-10.csv
+- CLEAN_MOMOTOR_2026-04.csv
+- CLEAN_MOMOTOR_2026-10.csv
 
 Jangan mengubah dataset CLEAN yang digunakan sistem
 tanpa validasi kualitas dan backup.
@@ -191,7 +191,7 @@ tanpa validasi kualitas dan backup.
 Contoh pengujian menggunakan folder output terpisah:
 
 ```powershell
-$env:CATS_BATCH = "Oktober"
+Remove-Item Env:CATS_BATCH -ErrorAction SilentlyContinue # pilih RAW bulanan terbaru
 $env:CATS_RAW_DIR = (Resolve-Path ".\Data\raw").Path
 $env:CATS_CLEAN_DIR = (Join-Path (Get-Location) "Data\clean_test")
 
@@ -211,12 +211,37 @@ uv run python src/Scraping/scrape_mobil123.py --help
 uv run python src/Scraping/scrape_momotor.py --help
 ```
 
+Eksekusi normal (hanya setelah izin scraping dan kesiapan browser diverifikasi):
+
+```powershell
+uv run --group scraping python src/Scraping/scrape_mobil123.py --stage all
+uv run --group scraping python src/Scraping/scrape_momotor.py --stage all
+```
+
+`--stage links` dan `--stage detail` memakai batch yang sama dalam satu bulan.
+Untuk melanjutkan batch lama setelah bulan berganti, berikan `--batch 2026-10`.
+Batch dipatok saat proses mulai; pergantian bulan di tengah proses tidak mengganti output.
+Link dan RAW disimpan melalui file sementara, divalidasi, lalu diganti secara atomik;
+URL identik tidak ditambahkan lagi. Listing yang sudah tersimpan dipertahankan saat error.
+Satu penulis saja per batch; jangan menjalankan dua scraper situs yang sama bersamaan.
+Penghentian paksa dapat kehilangan hasil sejak autosave terakhir, tetapi tidak menimpa
+CSV sebelumnya dengan file setengah tertulis. Resume akan mengunjungi ulang hasil yang belum disimpan.
+
+Cleaner meregenerasi CLEAN, antik, dan anomali dari RAW; tidak melakukan append CLEAN.
+Ketiganya disiapkan sebelum publikasi; kegagalan Python saat publikasi melakukan rollback.
+Atomisitas berlaku per file, bukan transaksi tahan power-loss untuk tiga file sekaligus.
+Restart API/Streamlit setelah mengganti snapshot karena indeks evidence di-cache per worker.
+Nama dataset historis sudah memakai `2026-04`/`2026-10`; isi dan metadata batch historis
+CSV dipertahankan saat rename. Regenerasi mempertahankan label provenance April/Oktober
+bila CLEAN historis yang bersangkutan sudah tersedia; output baru tanpa baseline memakai YYYY-MM. Gunakan `CATS_BATCH=2026-04` untuk cleaning historis secara eksplisit.
+Tidak ada APScheduler atau refresh terjadwal pada tahap ini.
+
 Scraping langsung membutuhkan Chrome/ChromeDriver yang
 kompatibel dan izin penggunaan sumber data.
 
-Pada pengujian terakhir, browser scraper belum
-terverifikasi karena ChromeDriver yang cocok belum
-tersedia. Jangan menyatakan live scraping sudah PASS.
+ChromeDriver lokal yang cocok sudah tersedia di luar repository, tetapi konfigurasi
+scraper masih memilih driver otomatis melalui undetected-chromedriver. Session browser
+dengan konfigurasi existing belum terverifikasi. Jangan menyatakan live scraping sudah PASS.
 
 Jangan melewati CAPTCHA atau pembatasan akses situs.
 

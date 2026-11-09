@@ -14,7 +14,8 @@ ROOT = Path(__file__).resolve().parents[2]
 
 from src.Training.pipeline import NUMERIC, FEATURES
 
-SOURCE = ROOT / 'Data/clean/CLEAN_MOBIL123_Oktober.csv'
+SOURCE = ROOT / 'Data/clean/CLEAN_MOBIL123_2026-10.csv'
+SOURCE_PROVENANCE = 'Data/clean/CLEAN_MOBIL123_Oktober.csv'  # Frozen artifact key; never rewritten.
 
 EXTRA_NUM = ['Pintu', 'Tenaga Puncak (hp)', 'Tenaga Putaran Puncak (Nm)',
              'Panjang (mm)', 'Lebar (mm)', 'Tinggi (mm)', 'Jarak Roda (mm)',
