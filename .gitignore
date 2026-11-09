@@ -108,3 +108,6 @@ Thumbs.db
 # DOCKER
 # ==========================================
 docker-compose.override.yml
+
+# Local audit reports
+*_AUDIT.md
